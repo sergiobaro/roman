@@ -6,20 +6,16 @@ import PackageDescription
 let package = Package(
   name: "roman",
   products: [
-      .executable(name: "roman", targets: ["roman"]),
-      .library(name: "RomanNumerals", targets: ["RomanNumerals"])
+      .library(name: "RomanCalculator", targets: ["RomanCalculator"])
   ],
   dependencies: [
   ],
   targets: [
     .target(
-      name: "roman",
-      dependencies: ["RomanNumerals"]),
-    .target(
-      name: "RomanNumerals",
+      name: "RomanCalculator",
       dependencies: []),
     .testTarget(
-      name: "RomanNumeralsTests",
-      dependencies: ["RomanNumerals"]),
+      name: "RomanCalculatorTests",
+      dependencies: ["RomanCalculator"]),
   ]
 )

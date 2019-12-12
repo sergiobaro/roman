@@ -1,7 +1,7 @@
 import XCTest
-import RomanNumerals
+import RomanCalculator
 
-final class RomanNumeralsTests: XCTestCase {
+final class RomanCalculatorTests: XCTestCase {
   let calculator = RomanCalculator.defaultStrategy()
   
   func test_Calculate() {

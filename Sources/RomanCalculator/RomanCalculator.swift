@@ -1,11 +1,11 @@
 
-internal protocol RomanNumeralsStrategy {
+internal protocol RomanCalculatorStrategy {
   func calculate(_ roman: String) throws -> Int
 }
 
 public class RomanCalculator {
   
-  private let strategy: RomanNumeralsStrategy
+  private let strategy: RomanCalculatorStrategy
   
   public enum Error: Swift.Error, Equatable {
     case invalid(char: Character)
@@ -19,7 +19,7 @@ public class RomanCalculator {
     return RomanCalculator(calculator: RomanCalculatorCurrentStrategy(values: RomanNumeralValues()))
   }
   
-  internal init(calculator: RomanNumeralsStrategy) {
+  internal init(calculator: RomanCalculatorStrategy) {
     self.strategy = calculator
   }
   
