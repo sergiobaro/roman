@@ -14,23 +14,17 @@ internal class RomanCalculatorCurrentStrategy: RomanCalculatorStrategy {
     }
     
     var total = 0
+    var lastValue = 0
     
-    for (index, char) in roman.enumerated() {
+    for char in roman {
       let value = try self.values.value(char: char)
       
-      if index + 1 < roman.count {
-        let nextIndex = roman.index(roman.startIndex, offsetBy: index + 1)
-        let nextChar = roman[nextIndex]
-        let nextValue = try self.values.value(char: nextChar)
-        
-        if nextValue > value {
-          total -= value
-        } else {
-          total += value
-        }
-      } else {
-        total += value
+      if lastValue > 0 && lastValue < value {
+        total -= (lastValue * 2)
       }
+      total += value
+      
+      lastValue = value
     }
     
     return total
