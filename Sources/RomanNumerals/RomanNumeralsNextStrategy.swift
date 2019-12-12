@@ -1,6 +1,6 @@
 import Foundation
 
-internal class RomanNumeralNextStrategy: RomanNumeralsStrategy {
+internal class RomanCalculatorNextStrategy: RomanNumeralsStrategy {
   
   private let values: RomanNumeralValues
   

@@ -3,7 +3,7 @@ internal protocol RomanNumeralsStrategy {
   func calculate(_ roman: String) throws -> Int
 }
 
-public class Roman {
+public class RomanCalculator {
   
   private let strategy: RomanNumeralsStrategy
   
@@ -11,12 +11,12 @@ public class Roman {
     case invalid(char: Character)
   }
   
-  public static func nextStrategy() -> Roman {
-    return Roman(calculator: RomanNumeralNextStrategy(values: RomanNumeralValues()))
+  public static func nextStrategy() -> RomanCalculator {
+    return RomanCalculator(calculator: RomanCalculatorNextStrategy(values: RomanNumeralValues()))
   }
   
-  public static func defaultStrategy() -> Roman {
-    return Roman(calculator: RomanNumeralCurrentStrategy(values: RomanNumeralValues()))
+  public static func defaultStrategy() -> RomanCalculator {
+    return RomanCalculator(calculator: RomanCalculatorCurrentStrategy(values: RomanNumeralValues()))
   }
   
   internal init(calculator: RomanNumeralsStrategy) {

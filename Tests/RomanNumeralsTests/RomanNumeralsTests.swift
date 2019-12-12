@@ -2,7 +2,7 @@ import XCTest
 import RomanNumerals
 
 final class RomanNumeralsTests: XCTestCase {
-  let roman = Roman.defaultStrategy()
+  let calculator = RomanCalculator.defaultStrategy()
   
   func test_Calculate() {
     let tests: [(roman: String, value: Int)] = [
@@ -27,18 +27,18 @@ final class RomanNumeralsTests: XCTestCase {
     
     for test in tests {
       var result: Int?
-      XCTAssertNoThrow(result = try roman.calculate(test.roman))
+      XCTAssertNoThrow(result = try calculator.calculate(test.roman))
       XCTAssertEqual(result, test.value, test.roman)
     }
   }
   
   func test_InvalidCharacter_ShouldThrowError() {
-    XCTAssertThrowsError(try roman.calculate("@")) { error in
-      XCTAssertEqual(error as? Roman.Error, Roman.Error.invalid(char: "@"))
+    XCTAssertThrowsError(try calculator.calculate("@")) { error in
+      XCTAssertEqual(error as? RomanCalculator.Error, RomanCalculator.Error.invalid(char: "@"))
     }
     
-    XCTAssertThrowsError(try roman.calculate("II@")) { error in
-      XCTAssertEqual(error as? Roman.Error, Roman.Error.invalid(char: "@"))
+    XCTAssertThrowsError(try calculator.calculate("II@")) { error in
+      XCTAssertEqual(error as? RomanCalculator.Error, RomanCalculator.Error.invalid(char: "@"))
     }
   }
 }

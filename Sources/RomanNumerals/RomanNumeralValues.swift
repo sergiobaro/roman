@@ -14,7 +14,7 @@ class RomanNumeralValues {
   
   func value(char: Character) throws -> Int {
     guard let value = self.values[char] else {
-      throw Roman.Error.invalid(char: char)
+      throw RomanCalculator.Error.invalid(char: char)
     }
     
     return value
