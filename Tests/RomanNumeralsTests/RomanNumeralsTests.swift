@@ -2,7 +2,7 @@ import XCTest
 import RomanNumerals
 
 final class RomanNumeralsTests: XCTestCase {
-  let roman = Roman()
+  let roman = Roman.defaultStrategy()
   
   func test_Calculate() {
     let tests: [(roman: String, value: Int)] = [
