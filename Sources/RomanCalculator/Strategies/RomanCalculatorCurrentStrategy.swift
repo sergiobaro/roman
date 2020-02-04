@@ -9,10 +9,6 @@ internal class RomanCalculatorCurrentStrategy: RomanCalculatorStrategy {
   }
   
   func calculate(_ roman: String) throws -> Int {
-    guard !roman.isEmpty else {
-      return 0
-    }
-    
     var total = 0
     var lastValue = 0
     

@@ -15,7 +15,7 @@ public class RomanCalculator {
     return RomanCalculator(calculator: RomanCalculatorNextStrategy(values: RomanNumeralValues()))
   }
   
-  public static func defaultStrategy() -> RomanCalculator {
+  public static func currentStrategy() -> RomanCalculator {
     return RomanCalculator(calculator: RomanCalculatorCurrentStrategy(values: RomanNumeralValues()))
   }
   

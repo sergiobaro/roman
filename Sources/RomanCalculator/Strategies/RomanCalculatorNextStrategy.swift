@@ -9,10 +9,6 @@ internal class RomanCalculatorNextStrategy: RomanCalculatorStrategy {
   }
   
   func calculate(_ roman: String) throws -> Int {
-    guard !roman.isEmpty else {
-      return 0
-    }
-    
     var total = 0
     
     for (index, char) in roman.enumerated() {
